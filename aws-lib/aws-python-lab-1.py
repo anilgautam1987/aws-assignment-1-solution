@@ -8,9 +8,8 @@ class AwsEC2Lab(object):
         """ aws resource type :- ec2 """
         self.ec2 = ec2 = boto3.resource('ec2')
 
-    def create_instance_by_name(self):
+    def create_ec2_instance(self):
         """create free-tier image"""
-        print 'started creating instance by image_id'
         instance = self.ec2.create_instances(
             ImageId='ami-922914f7',
             MinCount=1,
@@ -64,7 +63,7 @@ class AWS3Lab(object):
 
 if __name__ == '__main__':
     aws_ec2 = AwsEC2Lab()
-    # print aws.create_instance_by_name()
+    # print aws.create_ec2_instance()
 
     # list all instances
     aws_ec2.list_all_instances()
